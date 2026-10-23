@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#101412">
+<meta name="description" content="NEXO CHESS UNIVERSAL: ajedrez, comunidad y regeneración.">
+<link rel="manifest" href="./manifest.json">
+<title>NEXO CHESS UNIVERSAL</title>
+<style>
+:root{color-scheme:dark;--bg:#101412;--panel:#19221e;--panel2:#202b25;--line:#2e3b34;--text:#f3f0e8;--muted:#a7b3aa;--mint:#86e4c0;--cyan:#77cde0;--danger:#ff9e9e}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#1b2922 0%,var(--bg) 52%);color:var(--text);font:15px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+button,input,textarea{font:inherit}button{cursor:pointer}.app{max-width:1180px;margin:auto;padding:16px 16px 88px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0 22px}.brand{display:flex;align-items:center;gap:11px}.logo{width:42px;height:42px;display:grid;place-items:center;border:1px solid #456356;border-radius:14px;color:var(--mint);font-size:24px;background:linear-gradient(145deg,#233b30,#111814)}h1{font-size:16px;letter-spacing:.12em;margin:0;font-weight:750}.subbrand{font-size:11px;color:var(--muted);letter-spacing:.13em}.status{border:1px solid var(--line);border-radius:99px;padding:7px 10px;color:var(--mint);font-size:12px;white-space:nowrap}
+.layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(290px,.9fr);gap:16px}.panel{background:linear-gradient(145deg,rgba(29,40,33,.96),rgba(20,28,23,.97));border:1px solid var(--line);border-radius:20px;padding:17px;box-shadow:0 16px 48px #0002;min-width:0}.panelhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}.panelhead h2{font-size:16px;margin:0}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--mint)}.muted{color:var(--muted)}.small{font-size:12px}.boardwrap{max-width:600px;margin:auto}.board{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));aspect-ratio:1;border:2px solid #537564;border-radius:7px;overflow:hidden;box-shadow:0 0 0 1px #000,0 0 30px #86e4c018}.sq{border:0;padding:0;display:grid;place-items:center;position:relative;aspect-ratio:1;color:#101412;font-size:clamp(22px,5.5vw,51px);line-height:1}.light{background:#d8dfcf}.dark{background:#527564}.sq.selected{box-shadow:inset 0 0 0 4px var(--mint)}.sq.legal:after{content:"";position:absolute;width:23%;height:23%;border-radius:50%;background:#12271e66}.sq.capture:after{content:"";position:absolute;inset:5%;border:4px solid #12271e80;border-radius:50%}.piece{filter:drop-shadow(0 2px 1px #0004);z-index:1}.coord{position:absolute;left:3px;bottom:1px;font-size:9px;opacity:.65;font-weight:700}.boardcontrols{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.btn{border:1px solid #42564a;background:#26362d;color:var(--text);border-radius:11px;padding:9px 12px}.btn.primary{background:var(--mint);color:#102017;border-color:var(--mint);font-weight:700}.btn:active{transform:translateY(1px)}.btn:disabled{opacity:.4;cursor:not-allowed}.tabs{display:flex;gap:6px;overflow:auto;margin:0 0 14px}.tab{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:10px;padding:9px 12px;white-space:nowrap}.tab.active{background:#26372d;color:var(--mint);border-color:#456653}.roomlist{display:grid;gap:8px}.room{width:100%;text-align:left;border:1px solid var(--line);background:#151d18;border-radius:13px;padding:12px;color:var(--text);display:flex;gap:10px;align-items:center}.room.active{border-color:var(--mint);background:#203128}.roomicon{width:37px;height:37px;border-radius:11px;background:#26372d;display:grid;place-items:center;font-size:19px}.room strong{display:block;font-size:13px}.room small{color:var(--muted)}.room .count{margin-left:auto;color:var(--mint);font-size:11px}.chatbox{display:flex;flex-direction:column;height:240px;border:1px solid var(--line);border-radius:13px;overflow:hidden;margin-top:13px}.messages{padding:12px;overflow:auto;flex:1;display:flex;flex-direction:column;gap:10px}.msg{font-size:13px}.msg b{color:var(--mint);font-size:12px}.msg p{margin:2px 0 0;color:#e4e9e1;overflow-wrap:anywhere}.chatform{display:flex;gap:7px;padding:8px;border-top:1px solid var(--line)}.chatform input{min-width:0;flex:1;background:#101612;border:1px solid var(--line);border-radius:9px;color:var(--text);padding:9px}.notice{padding:10px 12px;border:1px solid #4a6654;background:#1d3025;border-radius:12px;color:#cdebd7;font-size:12px;margin-top:12px}.section{display:none}.section.active{display:block}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.project{border:1px solid var(--line);border-radius:14px;padding:13px;background:#151d18}.project h3{font-size:14px;margin:8px 0 5px}.project p{font-size:12px;color:var(--muted);margin:0 0 12px}.pill{display:inline-block;border:1px solid #42634f;color:var(--mint);border-radius:99px;padding:3px 7px;font-size:10px}.bar{height:6px;background:#2b3830;border-radius:9px;overflow:hidden;margin:8px 0}.bar span{display:block;height:100%;background:var(--mint);width:35%}.metricrow{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.metric{padding:13px;border:1px solid var(--line);border-radius:13px;background:#151d18}.metric strong{font-size:21px;display:block}.metric span{font-size:11px;color:var(--muted)}.bottomnav{display:none}.footer{text-align:center;color:#77857b;font-size:11px;padding:22px 0 0}
+@media(max-width:780px){.app{padding:12px 12px 92px}.layout{grid-template-columns:1fr}.panel{padding:13px;border-radius:16px}.top{padding-bottom:14px}.status{font-size:10px}.rightcol{display:grid;gap:14px}.boardwrap{max-width:540px}.bottomnav{position:fixed;bottom:0;left:0;right:0;z-index:10;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:8px 8px calc(8px + env(safe-area-inset-bottom));background:#101412ee;backdrop-filter:blur(16px);border-top:1px solid var(--line)}.bottomnav button{background:transparent;border:0;color:var(--muted);font-size:10px;padding:6px 2px}.bottomnav button span{display:block;font-size:19px;margin-bottom:2px}.bottomnav button.active{color:var(--mint)}.desktopnav{display:none}.cards{grid-template-columns:1fr 1fr}.metric strong{font-size:18px}}
+@media(max-width:370px){.cards{grid-template-columns:1fr}.boardcontrols .btn{flex:1;padding:8px 7px}.subbrand{letter-spacing:.05em}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top">
+  <div class="brand"><div class="logo">♞</div><div><h1>NEXO CHESS</h1><div class="subbrand">JUEGO · COMUNIDAD · REGENERACIÓN</div></div></div>
+  <div class="status">● MVP exploratorio</div>
+</header>
+<nav class="tabs desktopnav" aria-label="Navegación">
+  <button class="tab active" data-section="play">♟ Jugar</button><button class="tab" data-section="rooms">▤ Salas</button><button class="tab" data-section="projects">♧ Proyectos</button><button class="tab" data-section="impact">◎ Mi impacto</button>
+</nav>
+<section id="play" class="section active">
+<div class="layout">
+  <main class="panel">
+    <div class="panelhead"><div><div class="eyebrow">Partida local</div><h2>Tu tablero, tu siguiente movimiento</h2></div><span class="pill" id="turn">Blancas juegan</span></div>
+    <div class="boardwrap"><div class="board" id="board" role="grid" aria-label="Tablero de ajedrez"></div></div>
+    <div class="boardcontrols"><button class="btn primary" id="newgame">Nueva partida</button><button class="btn" id="undo">Deshacer</button><button class="btn" id="flip">Girar tablero</button></div>
+    <div class="notice" id="gameNotice">Prototipo inicial: tablero interactivo local. El rival automático y las partidas en línea se incorporarán en la siguiente iteración.</div>
+  </main>
+  <aside class="rightcol">
+    <div class="panel">
+      <div class="panelhead"><div><div class="eyebrow">En vivo · demo local</div><h2>Salas públicas</h2></div><button class="btn" data-goto="rooms">Ver todas</button></div>
+      <div class="roomlist" id="roomlist"></div>
+      <div class="chatbox"><div class="messages" id="messages" aria-live="polite"></div><form class="chatform" id="chatform"><input id="chatinput" maxlength="240" placeholder="Escribe un mensaje…" aria-label="Mensaje"><button class="btn primary" type="submit">Enviar</button></form></div>
+      <div class="small muted" style="margin-top:8px">La conversación actual solo se guarda en esta sesión del dispositivo. Aún no es un chat entre usuarios.</div>
+    </div>
+    <div class="panel"><div class="panelhead"><div><div class="eyebrow">Siguiente movimiento</div><h2>Una comunidad que actúa</h2></div><span>♧</span></div><p class="muted small">Descubre iniciativas locales, organiza un equipo y convierte las buenas ideas en acciones verificables.</p><button class="btn primary" data-goto="projects">Explorar proyectos</button></div>
+  </aside>
+</div>
+</section>
+<section id="rooms" class="section">
+  <div class="panel"><div class="eyebrow">Encuentra tu espacio</div><h2>Salas comunitarias</h2><p class="muted">Cada sala tiene un propósito. Los puentes entre salas sirven para crear actividades conjuntas, sin duplicar conversaciones automáticamente.</p><div class="roomlist" id="allrooms"></div><div class="notice">Demo de interfaz. Para mensajería multijugador real conectaremos una base de datos y un servicio de tiempo real con permisos y moderación.</div></div>
+</section>
+<section id="projects" class="section">
+  <div class="panel"><div class="eyebrow">Acción en el mundo real</div><h2>Proyectos regenerativos</h2><p class="muted">Los proyectos pasan de idea a plan, ejecución, evidencia y mantenimiento. Los ejemplos de esta versión son demostrativos, no iniciativas confirmadas.</p>
+  <div class="cards">
+    <article class="project"><span class="pill">Ejemplo · urbano</span><h3>Huerto comunitario</h3><p>Planificar un espacio productivo con agua disponible, especies adecuadas y responsables de cuidado.</p><div class="bar"><span style="width:25%"></span></div><div class="small muted">Estado de ejemplo: diseño inicial</div><button class="btn joinproject">Me interesa</button></article>
+    <article class="project"><span class="pill">Ejemplo · biodiversidad</span><h3>Plantas nativas</h3><p>Investigar especies locales y crear un plan de establecimiento y seguimiento.</p><div class="bar"><span style="width:15%"></span></div><div class="small muted">Estado de ejemplo: investigación</div><button class="btn joinproject">Me interesa</button></article>
+    <article class="project"><span class="pill">Ejemplo · comunidad</span><h3>Recuperación de espacio</h3><p>Identificar un lugar autorizado, sus riesgos y las necesidades de limpieza y mantenimiento.</p><div class="bar"><span style="width:10%"></span></div><div class="small muted">Estado de ejemplo: por definir</div><button class="btn joinproject">Me interesa</button></article>
+    <article class="project"><span class="pill">Ejemplo · aprendizaje</span><h3>Taller de permacultura</h3><p>Compartir conocimientos prácticos y preparar una actividad educativa abierta.</p><div class="bar"><span style="width:40%"></span></div><div class="small muted">Estado de ejemplo: propuesta</div><button class="btn joinproject">Me interesa</button></article>
+  </div><div class="notice" id="projectNotice">No se asignan puntos ecológicos por clics o partidas. Los aportes se contabilizarán cuando existan criterios públicos y evidencia apropiada.</div></div>
+</section>
+<section id="impact" class="section">
+  <div class="panel"><div class="eyebrow">Transparencia antes que cifras bonitas</div><h2>Mi impacto</h2><p class="muted">Este panel define las métricas del futuro sistema. No muestra resultados ambientales reales todavía.</p>
+    <div class="metricrow"><div class="metric"><strong>0</strong><span>Acciones verificadas</span></div><div class="metric"><strong>0</strong><span>Proyectos completados</span></div><div class="metric"><strong>—</strong><span>Impacto ambiental</span></div></div>
+    <div class="notice">Eco-Elo medirá contribuciones comunitarias verificadas; el Elo ajedrecístico seguirá separado. No convertiremos partidas en árboles ficticios.</div>
+    <h3 style="font-size:15px;margin-top:20px">Ciclo de regeneración</h3><ol class="muted small"><li>Detectar una necesidad real.</li><li>Definir responsables, permisos, recursos y riesgos.</li><li>Organizar la actividad y conseguir recursos.</li><li>Registrar la ejecución y sus evidencias.</li><li>Verificar resultados y planear el mantenimiento.</li></ol>
+  </div>
+</section>
+<footer class="footer">NEXO CHESS UNIVERSAL · MVP 0.1 · Hecho para crecer con cuidado.</footer>
+</div>
+<nav class="bottomnav" aria-label="Navegación móvil"><button class="active" data-section="play"><span>♟</span>Jugar</button><button data-section="rooms"><span>▤</span>Salas</button><button data-section="projects"><span>♧</span>Proyectos</button><button data-section="impact"><span>◎</span>Impacto</button></nav>
+<script>
+const files = {};
+const startFen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
+const glyph = {K:"♔",Q:"♕",R:"♖",B:"♗",N:"♘",P:"♙",k:"♚",q:"♛",r:"♜",b:"♝",n:"♞",p:"♟"};
+let board=[],selected=null,legal=[],flipped=false,history=[],activeRoom=0;
+const rooms=[
+ {icon:"♟",name:"Análisis clásico",desc:"Partidas y estrategia",count:"Pública",messages:[["Sistema","Bienvenido al laboratorio de análisis."],["Mara","¿Qué final están estudiando hoy?"]]},
+ {icon:"⚡",name:"Aperturas locas",desc:"Ideas y experimentos",count:"Pública",messages:[["Sistema","Comparte una idea de apertura y explora sus riesgos."]]},
+ {icon:"♧",name:"Permacultura urbana",desc:"Huertos y diseño regenerativo",count:"Pública",messages:[["Sistema","Aquí las propuestas se convierten en planes con responsables y seguimiento."]]},
+ {icon:"◎",name:"Tecnología abierta",desc:"Código y proyectos comunitarios",count:"Pública",messages:[["Sistema","Comparte herramientas y aprendizajes de software libre."]]}
+];
+function initial(){board=Array(64).fill("");const rows=["rnbqkbnr","pppppppp","........","........","........","........","PPPPPPPP","RNBQKBNR"];rows.forEach((row,r)=>[...row].forEach((p,c)=>board[r*8+c]=p==="."?"":p));selected=null;legal=[];history=[];renderBoard();updateTurn();document.getElementById("gameNotice").textContent="Tablero local de demostración. La validación completa de reglas y el rival automático se integrarán en la fase de motor ajedrecístico."}
+function coords(i){return String.fromCharCode(97+i%8)+(8-Math.floor(i/8))}
+function renderBoard(){const el=document.getElementById("board");el.innerHTML="";for(let n=0;n<64;n++){let i=flipped?63-n:n,r=Math.floor(i/8),c=i%8,s=document.createElement("button");s.className="sq "+((r+c)%2?"dark":"light")+(selected===i?" selected":"")+(legal.includes(i)?" legal":"");s.setAttribute("role","gridcell");s.setAttribute("aria-label",coords(i)+(board[i]?" "+board[i]:""));s.innerHTML=(board[i]?`<span class="piece">${glyph[board[i]]||""}</span>`:"")+(c===0?`<span class="coord">${8-r}</span>`:"");s.onclick=()=>clickSquare(i);el.appendChild(s)}}
+function clickSquare(i){if(selected!==null&&legal.includes(i)){history.push(board.slice());board[i]=board[selected];board[selected]="";selected=null;legal=[];renderBoard();updateTurn();return}if(board[i]){selected=i;legal=board.map((p,j)=>p?"":j).filter(v=>v!=="");legal=legal.filter(j=>Math.abs(j%8-i%8)<=2&&Math.abs(Math.floor(j/8)-Math.floor(i/8))<=2);legal=legal.filter(j=>!board[j]||((board[j]===board[j].toUpperCase())!==(board[i]===board[i].toUpperCase())));legal=legal.slice(0,18);renderBoard()}else{selected=null;legal=[];renderBoard()}}
+function updateTurn(){document.getElementById("turn").textContent=history.length%2===0?"Blancas juegan":"Negras juegan"}
+function renderRooms(){for(const id of ["roomlist","allrooms"]){const el=document.getElementById(id);el.innerHTML="";rooms.forEach((r,i)=>{const b=document.createElement("button");b.className="room"+(i===activeRoom?" active":"");b.innerHTML=`<span class="roomicon">${r.icon}</span><span><strong>${r.name}</strong><small>${r.desc}</small></span><span class="count">${r.count}</span>`;b.onclick=()=>{activeRoom=i;renderRooms();renderMessages();showSection("rooms")};el.appendChild(b)})} }
+function renderMessages(){const el=document.getElementById("messages");el.innerHTML="";rooms[activeRoom].messages.forEach(([name,msg])=>{const d=document.createElement("div");d.className="msg";const b=document.createElement("b");b.textContent=name;const p=document.createElement("p");p.textContent=msg;d.append(b,p);el.appendChild(d)});el.scrollTop=el.scrollHeight}
+document.getElementById("chatform").addEventListener("submit",e=>{e.preventDefault();const input=document.getElementById("chatinput"),v=input.value.trim();if(!v)return;rooms[activeRoom].messages.push(["Tú",v]);input.value="";renderMessages()});
+function showSection(id){document.querySelectorAll(".section").forEach(x=>x.classList.toggle("active",x.id===id));document.querySelectorAll("[data-section]").forEach(x=>x.classList.toggle("active",x.dataset.section===id));window.scrollTo({top:0,behavior:"smooth"})}
+document.querySelectorAll("[data-section]").forEach(b=>b.addEventListener("click",()=>showSection(b.dataset.section)));
+document.querySelectorAll("[data-goto]").forEach(b=>b.addEventListener("click",()=>showSection(b.dataset.goto)));
+document.getElementById("newgame").onclick=initial;document.getElementById("undo").onclick=()=>{if(history.length){board=history.pop();selected=null;legal=[];renderBoard();updateTurn()}};document.getElementById("flip").onclick=()=>{flipped=!flipped;renderBoard()};
+document.querySelectorAll(".joinproject").forEach(b=>b.onclick=()=>{document.getElementById("projectNotice").textContent="Interés registrado solo durante esta sesión de demostración. Para coordinar participación real se necesita backend, identidad y gestión segura de proyectos.";b.textContent="Interés indicado";b.disabled=true});
+renderRooms();renderMessages();initial();
+if("serviceWorker" in navigator && location.protocol.startsWith("http")) window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+</script>
+</body>
+</html>
